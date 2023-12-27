@@ -3,9 +3,18 @@ import React, { useState } from "react";
 // Importing the 'addRoom' function from the '../utils/ApiFunctions' module
 import { addRoom } from "../utils/ApiFunctions";
 
+// Importing the RoomTypeSelector 
 import RoomTypeSelector from "../common/RoomTypeSelector";
+import ExistingRooms from "./ExistingRooms";
 
 const AddRoom = () => {
+
+    /**
+      this line of code initializes a state variable named newRoom with an object containing properties
+      for a room's photo, type, and price. The initial values are null for the photo and empty strings
+      for the room type and price. The setNewRoom function can be used to update the state with a new 
+      room object.
+     */
     const[newRoom, setNewRoom] = useState({
         photo : null,
         roomType : "",
@@ -16,6 +25,11 @@ const AddRoom = () => {
     const[successMessage, setSuccessMessage] = useState("")
     const[errorMessage, setErrorMessage] = useState("")
 
+    /**this code handles changes in input fields, particularly for the "roomPrice" field. 
+     * It ensures that if the user enters a non-numeric value in the "roomPrice" field, 
+     * it sets the value to an empty string. Then, it updates the newRoom state with the new values, 
+     * ensuring that only the specified property ([name]) is modified while keeping the rest of the newRoom object unchanged.
+    */
     const handleRoomInputChange = (e) => 
     {
       const name = e.target.name
@@ -30,6 +44,9 @@ const AddRoom = () => {
       setNewRoom({...newRoom, [name]: value})
     }
 
+    /*  handleImageChange function is designed to be triggered when a user selects an image file.
+       It updates the newRoom state with the selected image and generates a URL for the image preview using URL.createObjectURL. 
+       */
     const handleImageChange = (e) => {
         const selectedImage = e.target.files[0]
         setNewRoom({...newRoom, photo: selectedImage})
@@ -125,10 +142,11 @@ const AddRoom = () => {
                                 <button className="btn btn-outline-primary ml-5">
                                     Save Room
                                 </button>
-                                </div> 
-                     </form>
+                                </div>
+                     </form>            
                 </div>
             </div>
+            <ExistingRooms/>  
         </section>
     
         </>

@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react"
+import {Col} from 'react-bootstrap'
+import RoomFilter from "../common/RoomFilter"
+import RoomPaginator from "../common/RoomPaginator"
+import { getAllRooms } from "../utils/ApiFunctions"
 
 const ExistingRooms = () => {
 
@@ -9,7 +13,7 @@ const ExistingRooms = () => {
     const[currentPage, setCurrentPage] = useState(1)
 
     // Displaying room per page
-    const[roomPerPage] = useState(8);
+    const[roomPerPage] = useState(8)
 
     // IsPage Loading
     const[isLoading, setIsLoading] = useState(false)
@@ -37,10 +41,18 @@ const ExistingRooms = () => {
         setIsLoading(true)
         try{
             const result = await getAllRooms()
+
+            // Log the result to the console
+            console.log("Fetched rooms successfully:", result);
+
             setRooms(result)
             setIsLoading(false)
 
         }catch(error){
+
+            // Log any errors to the console
+            console.error("Error fetching rooms:", error.message);
+
             setErrorMessage(error.message)
         }
     }
@@ -62,7 +74,7 @@ const ExistingRooms = () => {
 
         // The setCurrentPage(1) ensures that the user starts viewing the first page of the filtered results. 
         setCurrentPage(1)
-    },[rooms, selectedRoomType ])
+    },[rooms, selectedRoomType])
 
     const handlePaginationClick = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -116,7 +128,7 @@ const ExistingRooms = () => {
                             <tr key={room.id} className="text-center">
                                 <td>{room.id}</td>
                                 <td>{room.roomType}</td>
-                                <td>{room.roomprice}</td>
+                                <td>{room.roomPrice}</td>
                                 <td>
                                     <button>View / Edit</button>
                                     <button>Delete</button>
@@ -132,7 +144,6 @@ const ExistingRooms = () => {
                 onPageChange={handlePaginationClick}
                 />
             </section>
-            
             </>
         )}
         </>
