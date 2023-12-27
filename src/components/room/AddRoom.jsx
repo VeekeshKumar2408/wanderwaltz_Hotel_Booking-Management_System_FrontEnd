@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
+// Importing the 'addRoom' function from the '../utils/ApiFunctions' module
 import { addRoom } from "../utils/ApiFunctions";
+
 import RoomTypeSelector from "../common/RoomTypeSelector";
 
 const AddRoom = () => {
