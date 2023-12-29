@@ -15,7 +15,7 @@ export const api = axios.create({
 
 /**This function adds a new room to the database */
 export async function addRoom(photo, roomType, roomPrice){
-    console.log("Calling addRoom function with parameters:", photo, roomType, roomPrice);
+    console.log("Calling addRoom function with parameters:", photo, roomType, roomPrice)
 
     /**
      * FormData is an API in JavaScript that allows you to easily construct a set of key/value pairs representing 
@@ -38,23 +38,23 @@ export async function addRoom(photo, roomType, roomPrice){
         return false
     }
     } catch(error){
-        console.error("Error in addRoom function: ", error);
-        return false;
+        console.error("Error in addRoom function: ", error)
+        return false
     }
 } 
 
 /**This function get all room types from the database*/
 export async function getRoomTypes() {
     try{
-        console.log("Calling getRoomTypes function");
+        console.log("Calling getRoomTypes function")
 
         const response = await api.get("/rooms/room/types")
         console.log("getRoomTypes response:", response);
 
         return response.data
     } catch(error){
-        console.error("Error in getRoomTypes function:", error);
-
+        
+        console.error("Error in getRoomTypes function:", error)
         throw new Error("Error fetching room-types")
     }
 }
@@ -66,6 +66,17 @@ export async function getAllRooms(){
         return results.data
     }catch(error){
         throw new Error("Error fetching rooms")
+    }
+}
+
+// This function deletes a room by the Id
+export async function deleteRoom(roomId){
+    try{
+        const result = await api.delete(`/rooms/delete/room/${roomId}`)
+        return result.data
+
+    }catch(error){
+        throw new Error(`Error deleting room ${error.message}`)
     }
 }
  

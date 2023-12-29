@@ -9,12 +9,11 @@ import ExistingRooms from "./ExistingRooms";
 
 const AddRoom = () => {
 
-    /**
-      this line of code initializes a state variable named newRoom with an object containing properties
+    /**this line of code initializes a state variable named newRoom with an object containing properties
       for a room's photo, type, and price. The initial values are null for the photo and empty strings
       for the room type and price. The setNewRoom function can be used to update the state with a new 
       room object.
-     */
+    */
     const[newRoom, setNewRoom] = useState({
         photo : null,
         roomType : "",
