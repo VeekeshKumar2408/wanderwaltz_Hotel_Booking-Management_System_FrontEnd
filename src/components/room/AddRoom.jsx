@@ -6,6 +6,8 @@ import { addRoom } from "../utils/ApiFunctions";
 // Importing the RoomTypeSelector 
 import RoomTypeSelector from "../common/RoomTypeSelector";
 import ExistingRooms from "./ExistingRooms";
+import { Link } from "react-router-dom"
+
 
 const AddRoom = () => {
 
@@ -138,6 +140,9 @@ const AddRoom = () => {
                                 </div>  
                             </div> 
                             <div className="d-grid d-md-flex mt-2">
+                                <Link to={"/existing-rooms"} className="btn btn-out-line-info">
+                                  Return
+                                </Link>
                                 <button className="btn btn-outline-primary ml-5">
                                     Save Room
                                 </button>
@@ -145,7 +150,6 @@ const AddRoom = () => {
                      </form>            
                 </div>
             </div>
-            <ExistingRooms/>  
         </section>
     
         </>

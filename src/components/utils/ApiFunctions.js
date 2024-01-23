@@ -79,4 +79,25 @@ export async function deleteRoom(roomId){
         throw new Error(`Error deleting room ${error.message}`)
     }
 }
- 
+
+/**This function updates a room */
+export async function updateRoom(roomId, roomData){
+    const formData = new FormData()
+    console.log("Calling updateRoom function with parameters:", roomId  , roomData)
+    formData.append("roomType", roomData.roomType)
+    formData.append("roomPrice", roomData.roomPrice)
+    formData.append("photo", roomData.photo)
+    const response = await api.put(`/rooms/update/${roomId}`, formData)
+    return response
+}
+
+/*This function gets a room by the id */
+export async function getRoomById(roomId){
+    try {
+        console.log("Calling getRoom By Id function with parameters:", roomId)
+        const result = await api.get(`/rooms/room/${roomId}`)
+        return result.data
+    } catch (error) {
+        throw new Error(`Error fetching room ${error.message}`)
+    }
+}
