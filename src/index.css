@@ -70,7 +70,7 @@ body {
     color: rgb(169, 77, 123);
   }
   .room-price{
-    color:darkgoldenrod;
+    color:rgb(30, 25, 13);
     font-family: 'Courier New', Courier, monospace;
     font-size:medium;
   }
@@ -82,7 +82,7 @@ body {
 
 
 .parallax {
-  background-image: url("./assets/images/parrall.jpg");
+  background-image: url("./assets/image/parallax2.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body {
   position: relative;
   height: 150px;
   background-size: cover;
-  background-image: url("./assets/images/services4.jpg");
+  background-image: url("./assets/image/services1.jpeg");
   background-position: center center;
 }
 .header-title {
@@ -189,7 +189,7 @@ body {
 
 /* The header banner */
 .header-banner {
-  background-image:  url("./assets/images/banner.jpg");
+  background-image:  url("./assets/image/banner.jpg");
    background-size: cover;
   background-position: center;
    position: relative;

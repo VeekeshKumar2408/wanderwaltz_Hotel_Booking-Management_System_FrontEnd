@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Row, Col, Card} from 'react-bootstrap'
+import Header from './Header'
 import { FaClock, FaCocktail, FaParking, FaSnowflake, FaTshirt, FaUtensils, FaWifi} from 'react-icons/fa'
-import Header from '../common/Header'
+import { CiClock1 } from "react-icons/ci";
  
  const HotelService = () => {
    return (
@@ -11,17 +12,17 @@ import Header from '../common/Header'
 
             <Row className='mt-4'>
                 <h4 className='text-center'>
-                    Services At <span className='hotel-color'>WanderWaltz - </span>Hotel
+                    Services At <span className='hotel-color'>WanderWaltz </span>Hotel -
                     <span className='gap-2'>
-                        <FaClock className='ml-5'/> 24-Hours Front Desk
+                        <CiClock1 className='ml-5'/> 24-Hours Front Desk
                     </span>
                 </h4>
             </Row>
-            <hr />
+            <hr/>
 
                 <Row xs={1} md={2} lg={3} className='g-4 mt-2'>
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaWifi /> Wifi
@@ -32,18 +33,18 @@ import Header from '../common/Header'
                     </Col>
 
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaUtensils/> Breakfast
                             </Card.Title>
-                            <Card.Text></Card.Text>
+                            <Card.Text>Start your day with delicious breakfast buffet.</Card.Text>
                         </Card.Body>
                     </Card>
                     </Col>
 
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaTshirt /> Laundary
@@ -54,7 +55,7 @@ import Header from '../common/Header'
                     </Col>
 
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaCocktail /> Mini Bar
@@ -65,7 +66,7 @@ import Header from '../common/Header'
                     </Col>
 
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaParking /> Parking
@@ -76,7 +77,7 @@ import Header from '../common/Header'
                     </Col>
 
                     <Col>
-                    <Card>
+                    <Card style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'}}>
                         <Card.Body>
                             <Card.Title className='hotel-color'>
                                 <FaSnowflake /> Air Conditioning
@@ -86,7 +87,7 @@ import Header from '../common/Header'
                     </Card>
                     </Col>
                 </Row>
-     </Container>
+        </Container>
      </>
    )
  }

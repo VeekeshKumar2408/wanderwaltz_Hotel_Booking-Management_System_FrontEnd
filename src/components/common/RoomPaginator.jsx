@@ -1,4 +1,4 @@
-import React from "react"
+/*import React from "react"
 
 const RoomPaginator = ({currentPage, totalPages, onPageChange}) => {
     const pageNumbers = Array.from({length : totalPages},(_, i) => i+1)
@@ -20,4 +20,55 @@ const RoomPaginator = ({currentPage, totalPages, onPageChange}) => {
     )
 }
 
-export default RoomPaginator
+export default RoomPaginator*/
+import React from "react";
+
+const RoomPaginator = ({ currentPage, totalPages, onPageChange }) => {
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+  return (
+    <nav>
+      <ul className="pagination justify-content-center">
+        {currentPage > 1 && (
+          <li className="page-item">
+            <button
+              className="page-link grey-btn"
+              onClick={() => onPageChange(currentPage - 1)}
+            >
+              Previous
+            </button>
+          </li>
+        )}
+
+        {pageNumbers.map((pageNumber) => (
+          <li
+            key={pageNumber}
+            className={`page-item ${currentPage === pageNumber ? "active" : ""}`}
+          >
+            <button
+              className={`page-link grey-btn ${
+                currentPage === pageNumber ? "active" : ""
+              }`}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </button>
+          </li>
+        ))}
+
+        {currentPage < totalPages && (
+          <li className="page-item">
+            <button
+              className="page-link grey-btn"
+              onClick={() => onPageChange(currentPage + 1)}
+            >
+              Next
+            </button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default RoomPaginator;
