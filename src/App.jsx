@@ -11,6 +11,7 @@ import Footer from './components/layout/Footer'
 import SandBox from './components/sandBox/SandBox'
 import RoomListing from './components/room/RoomListing'
 import Admin from './components/admin/Admin'
+import BookingSuccess from './components/bookings/BookingSuccess'
 
 function App() {
 
@@ -26,7 +27,8 @@ function App() {
           <Route path ="/add-room" element={<AddRoom />}/>
           <Route path ="/browse-all-rooms" element={<RoomListing />}/>
           <Route path ="/admin" element={<Admin />}/>
-          <Route path ="/sandbox" element={<SandBox />}/>
+          <Route path ="/book-room/:roomId" element={<SandBox />}/>
+          <Route path ="/booking-success" element={<BookingSuccess />}/>        
       </Routes>
       </Router>
       <Footer/>
