@@ -31,55 +31,77 @@ const BookingSummary = ({booking, payment, isFormValid, onConfirm}) => {
     }, [isBookingConfirmed, navigate])
     
     return (
-    <div className='card card-body mt-5'>
-        <h4>Reservation Summary</h4>
-
-        <p>Full Name : <strong>{booking.guestFullName}</strong></p>
-        <p>Email     : <strong>{booking.guestEmail}</strong></p>
-        <p>Check-In Date  : <strong>{moment(booking.checkInDate).format("MMM Do YYYY")}</strong></p>
-        <p>Check-out Date : <strong>{moment(booking.checkOutDate).format("MMM Do YYYY")}</strong></p>
-        <p>Number Of Days : <strong>{numberOfDays}</strong></p>
-        <div>
-            <h5>Number Of Guests</h5>
-            <strong>
-                Adult{booking.numOfAdults > 1 ? "s" : ""} : {booking.numOfAdults }
-            </strong> {" "}
-            {" "}
-            <strong>
-                Children : {booking.numOfChildren}
-            </strong>
-        </div>
-        {payment > 0 ? (
+        <div className='card card-body mt-5 shadow'>
+          <h4>Reservation Summary</h4>
+          <table className="table">
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td><strong>{booking.guestFullName}</strong></td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td><strong>{booking.guestEmail}</strong></td>
+              </tr>
+              <tr>
+                <td>Check-In</td>
+                <td><strong>{moment(booking.checkInDate).format("MMM Do YYYY")}</strong></td>
+              </tr>
+              <tr>
+                <td>Check-out</td>
+                <td><strong>{moment(booking.checkOutDate).format("MMM Do YYYY")}</strong></td>
+              </tr>
+              <tr>
+                <td>Total Days</td>
+                <td><strong>{numberOfDays}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <h5>Number Of Guests</h5>
+          <table className="table mb-2 ">
+            <tbody>
+            <tr>
+          <td style={{ textAlign: "left" }}>Adult</td>
+          <td style={{ textAlign: "left" }}><strong>{booking.numOfAdults}</strong></td>
+        </tr>
+        <tr>
+          <td style={{ textAlign: "left" }}>Children</td>
+          <td style={{ textAlign: "left" }}><strong>{booking.numOfChildren}</strong></td>
+        </tr>
+            </tbody>
+          </table>
+      
+          {payment > 0 ? (
             <>
-            <p>
-              Total Payment : <strong>${payment}</strong>
-            </p>
-
-            {!isBookingConfirmed ? (
+              <p>Total Payment : <strong>${payment}</strong></p>
+              {!isBookingConfirmed ? (
                 <Button variant='success' onClick={handleConfirmBooking}>
-                {isProcessingPayment ? (
+                  {isProcessingPayment ? (
                     <>
-                    <span className='spinner-border spinner-border-sm mr-2' role='status' aria-hidden='true'></span>
-                    Booking Confirmed, redirecting to payment ....
+                      <span className='spinner-border spinner-border-sm mr-2' role='status' aria-hidden='true'></span>
+                      Booking Confirmed, redirecting to payment ....
                     </>
-                ) : (
-                    "Confirm Booking and proceed to payment"
-                )}
+                  ) : (
+                    "Proceed to payment"
+                  )}
                 </Button>
-                ) : isBookingConfirmed ? (
+              ) : isBookingConfirmed ? (
                 <div className='d-flex justify-content-center align-items-center'>
-                <div className='spinner-border text-primary' role='status'>
+                  <div className='spinner-border text-primary' role='status'>
                     <span className='sr-only'>Loading...</span>
+                  </div>
                 </div>
-                </div>
-            ) : null }
-
+              ) : null }
             </>
-        ): (
+          ) : (
             <p className='text-danger'> Check-out date must be after check-in date</p>
-        )}
-    </div>
-   )
+          )}
+        </div>
+      )
+      
+
+      
 }
 
 export default BookingSummary
