@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getAllBookings, cancelBooking } from '../utils/ApiFunctions'
-import BookingTable from '../bookings/BookingTable'
+import BookingTable from './BookingTable'
 import Header from '../common/Header'
 
 const Bookings = () => {

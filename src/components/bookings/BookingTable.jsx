@@ -11,7 +11,6 @@ const BookingTable = ({bookingInfo, handleBookingCancellation}) => {
     };
 
     const filterBooking = (startDate, endDate) => {
-        console.log("bookingInfo.checkInDate -> ", bookingInfo.checkInDate)
         let filtered = bookingInfo
         if(startDate && endDate){
             filtered = bookingInfo.filter((booking) => {
