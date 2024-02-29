@@ -69,86 +69,94 @@ const EditRoom = () => {
         }
     } 
 
-    return (
+    return(
         <>
-        
         <section className="container mt-5 mb-5">
             <div className="row justify-content-center">
-                <div className="col-md-8 col-lg-6">
-                    <h2 className="mt-5 mb-2">Edit Room</h2>
-                    {successMessage && (
-                        <div className="alert alert-success fade show">
-                            {successMessage}
+                <div className="col-md-4 justify-content-center">
+                    {imagePreview && (
+                        <div className="text-center">
+                            <img
+                                src={`data:image/jpeg;base64,${imagePreview}`}
+                                alt="Room Photo"
+                                style={{ maxWidth: "100%", maxHeight: "400px" }}
+                                className="mb-3"
+                            />
                         </div>
                     )}
-
-                    {errorMessage && (
-                        <div className="alert alert-danger fade show">
-                            {errorMessage}
-                        </div>
-                    )}
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="roomtype" className="form-label">
-                                Room Type
-                                </label>
-                               < input
-                                 type = "text"
-                                 className="form-control"
-                                 id="roomType"
-                                 name="roomType"
-                                 value={room.roomType}
-                                 onChange={handleInputChange}
-                               />
-                            </div>
-                            <div className="mb-3">
-                            <label htmlFor="roomPrice" className="form-label">
-                                Room Price
-                                </label>
-                                <input
-                                className="form-control"
-                                required
-                                id="roomPrice"
-                                type="number"
-                                name="roomPrice"
-                                value={room.roomPrice}
-                                onChange={handleInputChange}
-                                />
-                            </div>
-                            <div className="mb-3">
-                            <label htmlFor="photo" className="form-label">
-                                Room Photo
-                                </label>
-                                <input
-                                required
-                                id="photo"
-                                name="photo"
-                                type="file"
-                                className="form-control"
-                                onChange={handleImageChange}
-                                />
-                                <div className="center mt-3">
-                                {imagePreview && (
-                                    <img src={imagePreview}
-                                    alt="Room Photo"
-                                    style={{maxWidth: "400px", maxHeight:"400px"}}
-                                    className="mb-3"/>
-                                )}  
-                                </div>  
-                            </div> 
-                            <div className="d-grid gap-2 d-md-flex mt-2">
-                                <Link to={"/existing-rooms"} className="btn btn-outline-info ml-5">
-                                    Back
-                                </Link>
-                                <button className="btn btn-outline-primary ml-5">
-                                    Edit Room
-                                </button>
+                </div>
+                <div className="col-md-8">
+                    <div className="card">
+                        <div className="card-body shadow ">
+                            <h2 className="card-title mt-3 mb-2 text-center">Edit Room</h2>
+                            {successMessage && (
+                                <div className="alert alert-success fade show">
+                                    {successMessage}
                                 </div>
-                     </form>            
+                            )}
+    
+                            {errorMessage && (
+                                <div className="alert alert-danger fade show">
+                                    {errorMessage}
+                                </div>
+                            )}
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-3">
+                                    <label htmlFor="roomtype" className="form-label">
+                                        Room Type
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="roomType"
+                                        name="roomType"
+                                        value={room.roomType}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="roomPrice" className="form-label">
+                                        Room Price
+                                    </label>
+                                    <input
+                                        className="form-control"
+                                        required
+                                        id="roomPrice"
+                                        type="number"
+                                        name="roomPrice"
+                                        value={room.roomPrice}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="photo" className="form-label">
+                                        Room Photo
+                                    </label>
+                                    <input
+                                        required
+                                        id="photo"
+                                        name="photo"
+                                        type="file"
+                                        className="form-control"
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
+                                <div className="d-grid gap-2 d-md-flex mt-2">
+                                    <Link to={"/existing-rooms"} className="btn btn-outline-info">
+                                        Back
+                                    </Link>
+                                    <button className="btn btn-outline-primary ml-md-auto">
+                                        Edit Room
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        </>
+    </>
+    
     )
 }
 

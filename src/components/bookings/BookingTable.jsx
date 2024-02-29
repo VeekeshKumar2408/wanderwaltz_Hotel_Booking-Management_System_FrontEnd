@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from 'react'
 import { parseISO } from "date-fns"
 import DateSlider from '../common/DateSlider'
+import moment from "moment"
+
 
 const BookingTable = ({bookingInfo, handleBookingCancellation}) => {
     const[filterBookings, setFilteredBookings] = useState(bookingInfo)
